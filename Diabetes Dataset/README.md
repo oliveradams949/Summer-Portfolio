@@ -3,4 +3,6 @@
 Data-cleaning and analysis, conducted on a diabetes dataset. Largely used to discuss data imputation before models.
 
 ## Source Dataset
-* **Dataset Link:** [Kaggle Pima Indians Diabetes Dataset](https://kaggle.com)
+* **Dataset Link:** [Kaggle Pima Indians Diabetes Dataset](https://www.kaggle.com/datasets/mragpavank/diabetes)
+
+## What it does
