@@ -1,6 +1,6 @@
 # Diabetes Dataset (PIMA)
 
-Data-cleaning and analysis, conducted on a diabetes dataset. Largely used to discuss data imputation before models.
+Exploratory Data-cleaning and analysis, conducted on a diabetes dataset. Largely used to discuss data imputation before models.
 
 ## Source Dataset
 * **Dataset Link:** [Kaggle Pima Indians Diabetes Dataset](https://www.kaggle.com/datasets/mragpavank/diabetes)
@@ -12,3 +12,7 @@ Data-cleaning and analysis, conducted on a diabetes dataset. Largely used to dis
 * Identifies the proportion of missing values dependent upon the outcome (health of the patient) of the diabetes test conducted.
 * Shows how the missingness is largely uniform across negative vs positive outcomes.
 * Uses this information to evaluate the efficacy of using the median value in the imputation of the missing values.
+
+## Future Improvements
+* Utilise a more advanced imputation technique than a single value, such as KNN or MICE.
+* Implement predictive models such as logistic regression in order to predict outcome. 
