@@ -1,6 +1,6 @@
 # Medical Charges Analysis, with Utilisation of Machine Learning
 
-A general exploration of the Kaggle Medical Costs Dataset, conducted to expand understanding and then later build models in order to predict charges.
+Exploratory Data analysis conducted on a medical charges dataset, primarily used to better understand feature interactions and evaluating different models.
 
 ## Source Dataset
 * **Dataset Link** [Medical Cost Personal Datasets](https://www.kaggle.com/datasets/mirichoi0218/insurance) Open Source Dataset.
