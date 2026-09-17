@@ -226,14 +226,14 @@ changing to 0.8499 and 0.2718 for smokers and non-smokers respectively. This is 
 the variance being explained than before. 
 
 This is largely due to the smokers model being somewhat "lucky" with the draw of the tests splits, leading to more desirable results for the model. The K-fold method reduces the effect of chance within the shuffling of data,
-leading to a more realistic reflection of how the model would have actually performed. This can be seen by looking specifically at the results per split, for example split 4 vs 5 for smokers (MAE 1828.5 vs 3053 .50 and r^2 0.9076 vs 0.7687),  
+leading to a more realistic reflection of how the model would have actually performed. This can be seen by looking specifically at the results per split, for example split 3 vs 4 for smokers (MAE 1386.29 vs 2607.62 and r^2 0.9637 vs 0.8318),  
 which can show a high degree of difference compared to the average, showing how chance within testing splits can show a large role in the results and thus the percieved accuracy of a model. 
 The repeated shuffling, testing, then averaging prevented this, leading to a better view of the model's efficacy and therefore a potentially better conclusion on how the cohort seperation should be viewed.
 
-Thinking about how the model worked, I asked myself how the LinearRegression used earlier would perform. Modifying my function for this, the LinearRegression model performed worse for the full dataset than the Forest 
-(MAE 4199.32 vs 2749.79, r^2 0.83530 vs 0.74570). However, the Linear Regression model performed suprisingly well for non-smokers (MAE 2824.87 vs 2515.06, r^2 0.27179 vs 0.40973). This is likely due to similar logic as the R^2
-values, with the lack of the dominant feature of smoking leading to non-smokers medical costs being largely determined by bmi or aging, rather than a interaction of factors, lending itself better to the linear
-regression model rather than the more complex random forest regressor.
+Thinking about how the model worked, I asked myself how the LinearRegression used earlier would perform. Modifying my function for this, the LinearRegression model performed slightly worse for the full dataset than the Forest 
+(MAE 2407.10 vs 1816.09, r^2 0.88833 vs 0.89952). This trend continued for the non-smokers cohort (MAE Forest 1771.89 vs Linear 2396.80 R^2 Forest 0.59947 vs Linear 0.55674). This is slightly inverted for the smokers cohort, with Linear having a slightly
+higher R^2 value (MAE 1809.99 vs 1988.36 R^2 0.90407 vs 0.90923). This is only by 0.005, so could be random chance, but the models perform quite similarly for smokers. However, Forest is the generally better model for the other cohorts, and has a lower
+MAE for smokers. As such, the more advanced model is better in this case.  
 """
 """
 def model_maker(given_dataset, dataset_name="Dataset"):
@@ -317,7 +317,7 @@ model_maker(non_smoker_df, "Non-smokers")
 """
 Reflecting on this project as a whole, when attempting to understand a dataset, dividing it into specific cohorts is incredibly important. By using sampling methods that reduce the effect of chance, in this case through 
 use of K-folds, the models are also able to be more realistic and give a better view of how the model being trained performs. This allows for deeper analysis, and more accurate models for predicting specific
-values associated with interacting features. Understanding the ways in which these features interact allows for usage of more suitable models for each cohort, learning that more complex models are not automatically better.
+values associated with interacting features. Understanding the ways in which these features interact allows for usage of more suitable models for each cohort, learning that knowledge of the underlying data enables the best choice.
 Knowing whether a specific feature acts as a multiplying factor or acts linearly aids greatly in choosing the complexity of a model, potentially allowing for vastly reduced average errors and superior predictions for models.
 Finally, the consideration of these aspects also highlights the importance of measuring many relevant features, reducing the variance that is left unexplained by the models, leading to increased r^2 values. Taking these lessons
 into account, we can have a vastly superior understanding of a dataset, leading to better predictions.       
