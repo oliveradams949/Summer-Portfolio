@@ -1,6 +1,6 @@
 # Computing for Mathematics Module Final Group Project
 
-Raw Code for my Computing for Mathematics group project. Largely added the coding was largely done by me (please see the contributions file for my submission). Also the longest project I have ever done. 
+Raw Code for my Computing for Mathematics project. Largely added the coding was largely done by me (please see the contributions file for my submission). Also the longest project I have ever done. 
 
 ## Description
 
