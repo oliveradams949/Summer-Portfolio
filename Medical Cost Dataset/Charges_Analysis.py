@@ -197,44 +197,42 @@ print(chi2_contingency(children_risk_cross_table))
 chi2, p_value, dof, expected = chi2_contingency(children_risk_cross_table)
 
 print(f"{chi2:.4f}, {p_value:.4f}")
-
 """
 """
-This section creates a machine learning model in order to predict the medical costs of a given patient, then later investigates how isolating the dataset into specific cohorts affects the accuracy of the models created by
+This section creates a machine learning model in order to predict the medical costs of a given patient, then later investigates how isolating the dataset into specific cohorts affects the accuracy of the models created by 
 RandomForestRegressor. This then allows us to understand more about the underlying effects of the features of each patient, and the influence they have over their medical costs.
 
-By specifically isolating smokers versus non-smokers, this lead to an r^2 of 0.87445 and 0.20328 respectively, compared to 0.82329 for the dataset as a whole. This shows how the accuracy of the model improves on a split cohort
+By specifically isolating smokers versus non-smokers, this lead to an r^2 of 0.87445 and 0.20328 respectively, compared to 0.82329 for the dataset as a whole. This shows how the accuracy of the model improves on a split cohort 
 of smokers, but drastically decreases in accuracy for non-smokers. 
 
-R^2 represents the variance in the model's answers that is explainable, and this increase in the smoker's cohort ties into the previous section, with smoking having an incredibly large effect on the medical 
-costs of a patient, potentially being multiplicative. As this is a feature within the dataset, it is represented within the model's predictions.
+R^2 represents the variance in the model's answers that is explainable, and this increase in the smoker's cohort ties into the previous section, with smoking having an incredibly large effect on the medical costs of a patient, 
+potentially being multiplicative. As this is a feature within the dataset, it is represented within the model's predictions.
 
-This is in contrast to non-smokers, whose R^2 value drastically reduced, showing how the features within the dataset largely don't explain the medical costs of the cohort. The non-smokers cost could be explained by a 
-multitude of factors not measured, such as exercise habits, diet, alcohol intake, and much more, however these are not represented within the dataset, and so not represented within the model's predictions.
+This is in contrast to non-smokers, whose R^2 value drastically reduced, showing how the features within the dataset largely don't explain the medical costs of the cohort. The non-smokers cost could be explained by a multitude 
+of factors not measured, such as exercise habits, diet, alcohol intake, and much more, however these are not represented within the dataset, and so not represented within the model's predictions.
 
-This section could be seen as a way to represent how the features of a dataset can have a large effect upon the accuracy of any models trained upon it. With every feature potentially leading to a richer more accurate 
-sense of each individual patient, allowing for better predictions.
+This section could be seen as a way to represent how the features of a dataset can have a large effect upon the accuracy of any models trained upon it. With every feature potentially leading to a richer more accurate sense of 
+each individual patient, allowing for better predictions.
 
-Furthermore, regarding the MAE of each model, the smokers had a smaller value than for non-smokers (2253.08447 vs 2786.38231 to 4d.p). This shows how it is a more accurate estimate
-of each patient's medical costs, for potentially similar reasons as the R^2 value. As the effect of smoking is so large and dominant a determining factor for medical costs, that the model is more easily able to predict 
-them, compared  to non-smokers, which don't have the presence of a similar single dominant feature. As such, the model is unable to find the underlying structure of the cohort, leading to the values for the model being 
-more likely to cluster around the mean, leading to a larger MAE.
+Furthermore, regarding the MAE of each model, the smokers had a smaller value than for non-smokers (2253.08447 vs 2786.38231 to 4d.p). This shows how it is a more accurate estimate of each patient's medical costs, 
+for potentially similar reasons as the R^2 value. As the effect of smoking is so large and dominant a determining factor for medical costs, that the model is more easily able to predict them, compared to non-smokers, which 
+don't have the presence of a similar single dominant feature. As such, the model is unable to find the underlying structure of the cohort, leading to the values for the model being more likely to cluster around the mean, 
+leading to a larger MAE.
 
-During my investigation, I first used a standard split, but then switched to a k-fold method. This splits the data 5 seperate sections, or "folds", using each one as the testing set once. This led to a difference in the
-values obtained for each cohort, with my original values being referenced earlier in the summary. However, my new values are quite interesting, with MAE increasing to 2344.90 and 2824.87, and r^2
-changing to 0.8499 and 0.2718 for smokers and non-smokers respectively. This is suprising, as the average error increased, suggesting that the models got less accurate, but for non-smokers, the r^2 increased drasticall, leading to more of
-the variance being explained than before. 
+During my investigation, I first used a standard split, but then switched to a k-fold method. This splits the data 5 separate sections, or "folds", using each one as the testing set once. This led to a difference in the 
+values obtained for each cohort, with my original values being referenced earlier in the summary. However, my new values are quite interesting, with MAE increasing to 2344.90 and 2824.87, and r^2 changing to 0.8499 and 0.2718 
+for smokers and non-smokers respectively. This is surprising, as the average error increased, suggesting that the models got less accurate, but for non-smokers, the r^2 increased drastically, leading to more of the variance 
+being explained than before. 
 
-This is largely due to the smokers model being somewhat "lucky" with the draw of the tests splits, leading to more desirable results for the model. The K-fold method reduces the effect of chance within the shuffling of data,
-leading to a more realistic reflection of how the model would have actually performed. This can be seen by looking specifically at the results per split, for example split 3 vs 4 for smokers (MAE 1386.29 vs 2607.62 and r^2 0.9637 vs 0.8318),  
-which can show a high degree of difference compared to the average, showing how chance within testing splits can show a large role in the results and thus the percieved accuracy of a model. 
-The repeated shuffling, testing, then averaging prevented this, leading to a better view of the model's efficacy and therefore a potentially better conclusion on how the cohort seperation should be viewed.
+This is largely due to the smokers model being somewhat "lucky" with the draw of the tests splits, leading to more desirable results for the model. The K-fold method reduces the effect of chance within the shuffling of data, 
+leading to a more realistic reflection of how the model would have actually performed. This can be seen by looking specifically at the results per split, for example split 4 vs 5 for smokers (MAE 1828.5 vs 3053 .50 and r^2 
+0.9076 vs 0.7687), which can show a high degree of difference compared to the average, showing how chance within testing splits can show a large role in the results and thus the perceived accuracy of a model. 
+The repeated shuffling, testing, then averaging prevented this, leading to a better view of the model's efficacy and therefore a potentially better conclusion on how the cohort separation should be viewed.
 
-Thinking about how the model worked, I asked myself how the LinearRegression used earlier would perform. Modifying my function for this, the LinearRegression model performed slightly worse for the full dataset than the Forest 
-(MAE 2407.10 vs 1816.09, r^2 0.88833 vs 0.89952). This trend continued for the non-smokers cohort (MAE Forest 1771.89 vs Linear 2396.80 R^2 Forest 0.59947 vs Linear 0.55674). This is slightly inverted for the smokers cohort, with Linear having a slightly
-higher R^2 value (MAE 1809.99 vs 1988.36 R^2 0.90407 vs 0.90923). This is only by 0.005, so could be random chance, but the models perform quite similarly for smokers. However, Forest is the generally better model for the other cohorts, and has a lower
-MAE for smokers. As such, the more advanced model is better in this case.  
-"""
+Thinking about how the model worked, I asked myself how the LinearRegression used earlier would perform. Modifying my function for this, the LinearRegression model performed worse for the full dataset than the Forest 
+(MAE 4199.32 vs 2749.79, r^2 0.83530 vs 0.74570). However, the Linear Regression model performed surprisingly well for non-smokers (MAE 2824.87 vs 2515.06, r^2 0.27179 vs 0.40973). This is likely due to similar logic as the 
+R^2 values, with the lack of the dominant feature of smoking leading to non-smokers medical costs being largely determined by bmi or aging, rather than an interaction of factors, lending itself better to the linear regression
+model rather than the more complex random forest regressor.
 """
 def model_maker(given_dataset, dataset_name="Dataset"):
     patients_one_hot = pd.get_dummies(given_dataset)
