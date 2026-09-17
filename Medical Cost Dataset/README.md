@@ -1,4 +1,4 @@
-# Medical Charges Analysis, with Utilisation of Machine Learning
+# Medical Charges Analysis
 
 Exploratory Data analysis conducted on a medical charges dataset, primarily used to better understand feature interactions and evaluating different models.
 
