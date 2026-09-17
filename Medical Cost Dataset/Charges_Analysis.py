@@ -312,10 +312,9 @@ model_maker(smoker_df, "Smokers")
 
 model_maker(non_smoker_df, "Non-smokers")
 """
-"""
 Reflecting on this project as a whole, when attempting to understand a dataset, dividing it into specific cohorts is incredibly important. By using sampling methods that reduce the effect of chance, in this case through 
 use of K-folds, the models are also able to be more realistic and give a better view of how the model being trained performs. This allows for deeper analysis, and more accurate models for predicting specific
-values associated with interacting features. Understanding the ways in which these features interact allows for usage of more suitable models for each cohort, learning that knowledge of the underlying data enables the best choice.
+values associated with interacting features. Understanding the ways in which these features interact allows for usage of more suitable models for each cohort, learning that knowledge of the underlying data informs the best choice.
 Knowing whether a specific feature acts as a multiplying factor or acts linearly aids greatly in choosing the complexity of a model, potentially allowing for vastly reduced average errors and superior predictions for models.
 Finally, the consideration of these aspects also highlights the importance of measuring many relevant features, reducing the variance that is left unexplained by the models, leading to increased r^2 values. Taking these lessons
 into account, we can have a vastly superior understanding of a dataset, leading to better predictions.       
