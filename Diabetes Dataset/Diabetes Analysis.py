@@ -90,8 +90,8 @@ healthy_df = df[df["Outcome"] == 0]
 print(((healthy_df[replace_value].isnull().sum()/ len(healthy_df))*100).round(1))
 """
 This shows the distribution of the nulls, with the values being incredibly close together for both the initial and healthy dataset (48.7% vs 47.2% for Insulin). This suggests that whether or not the patient had tested positive had no bearing on the presence of null
-values. This shows how using a global median would lead to an incredible large flattening of the data, as the nulls are evenly spread. Due to the nature of glucose levels within diabetics, this would lead to a flattening of outliers.
+values. This shows how using a global median would lead to an incredible large flattening of the data, as the nulls are evenly spread between outcomes. This would lead to a flattening of outliers.
 Taking into account also the way in which the skin thickness and insulin measurements are also intertwined, this would also create a large segment of the data where both the skin thickness and insulin levels are the same respectively,
-distorting the data considerably around these values. This effect would be entirely unrealistic, so would disappear once the model is used in reality.
-As such, a major decrease in the R^2 and increase in the MAE of any potential model would occur, reducing it's predictive power and reliability. Therefore, a more advanced approach would be appropriate.
+distorting the data considerably around these values. This distortion would be entirely unrealistic, so the relationship would likely disappear once the model is used in reality.
+As such, a major decrease in the R^2 and increase in the MAE of any potential model would occur, reducing its predictive power and reliability. Therefore, a more advanced approach would be appropriate.
 """
