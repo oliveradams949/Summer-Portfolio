@@ -79,7 +79,7 @@ print(df.isnull().sum())
 
 """
 In order to train a model on the data, the null values must be replaced with a suitable placeholder. This allows the model to be trained appropriately. From what I can tell online, using imputation to replace the nulls with the median
-seems to be the best approach. However, which must investigate the distribution of the null values first, splitting the dataset into a healthy cohort and then summing the nulls again. We then find the proportions of nulls, and compare
+seems to be the best approach. However, we must investigate the distribution of the null values first, splitting the dataset into a healthy cohort and then summing the nulls again. We then find the proportions of nulls, and compare
 with the initial dataset. This is largely to test the hypothesis as to whether those taking the measurements were doing so as the patient tested positive or negative, and so the measurements weren't taken due to that. Similar to the 
 reasoning laid out in one of the previous summaries.
 """
@@ -90,6 +90,8 @@ healthy_df = df[df["Outcome"] == 0]
 print(((healthy_df[replace_value].isnull().sum()/ len(healthy_df))*100).round(1))
 """
 This shows the distribution of the nulls, with the values being incredibly close together for both the initial and healthy dataset (48.7% vs 47.2% for Insulin). This suggests that whether or not the patient had tested positive had no bearing on the presence of null
-values. This shows how using a global median would lead to an incredible large flattening of the data, as the nulls are evenly spread. Due to the nature of glucose levels within diabetics, this would lead to a flattening of outliers and
-so a major decrease in the R^2 and increase in the MAE of any potential model, reducing it's predictive power and reliability. As such, a more advanced approach would be appropriate.
+values. This shows how using a global median would lead to an incredible large flattening of the data, as the nulls are evenly spread. Due to the nature of glucose levels within diabetics, this would lead to a flattening of outliers.
+Taking into account also the way in which the skin thickness and insulin measurements are also intertwined, this would also create a large segment of the data where both the skin thickness and insulin levels are the same respectively,
+distorting the data considerably around these values. This effect would be entirely unrealistic, so would disappear once the model is used in reality.
+As such, a major decrease in the R^2 and increase in the MAE of any potential model would occur, reducing it's predictive power and reliability. As such, a more advanced approach would be appropriate.
 """
