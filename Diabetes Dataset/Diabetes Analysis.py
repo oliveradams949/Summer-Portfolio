@@ -93,5 +93,5 @@ This shows the distribution of the nulls, with the values being incredibly close
 values. This shows how using a global median would lead to an incredible large flattening of the data, as the nulls are evenly spread. Due to the nature of glucose levels within diabetics, this would lead to a flattening of outliers.
 Taking into account also the way in which the skin thickness and insulin measurements are also intertwined, this would also create a large segment of the data where both the skin thickness and insulin levels are the same respectively,
 distorting the data considerably around these values. This effect would be entirely unrealistic, so would disappear once the model is used in reality.
-As such, a major decrease in the R^2 and increase in the MAE of any potential model would occur, reducing it's predictive power and reliability. As such, a more advanced approach would be appropriate.
+As such, a major decrease in the R^2 and increase in the MAE of any potential model would occur, reducing it's predictive power and reliability. Therefore, a more advanced approach would be appropriate.
 """
