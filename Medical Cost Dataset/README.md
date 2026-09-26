@@ -12,6 +12,3 @@ Exploratory Data analysis conducted on a medical charges dataset, primarily used
 * Replaced a single train-test split with K-Fold cross-validation, to reduce the effect of chance within train-test splits.
 * Investigated how each model fit the data, examining how non-linear interactions affected the performance of each one.
 * Compared model performance across various cohorts and the full dataset, examining when a complex or a simple model is more suitable.
-
-## Future Improvements
-*
