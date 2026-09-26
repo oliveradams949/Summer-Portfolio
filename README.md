@@ -12,10 +12,10 @@ These skills include: identifying trends and feature interactions, hypothesis te
 * Matplotlib
 * Seaborn
 * From sklearn:
-** LinearRegression
-** train_test_split
-** RandomForestRegressor
-** mean_absolute_error
-** r2_score
-** KFold
+  * LinearRegression
+  * train_test_split
+  * RandomForestRegressor
+  * mean_absolute_error
+  * r2_score
+  * KFold
 * chi2_contingency from scipy
