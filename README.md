@@ -7,15 +7,10 @@ The goal of this portfolio is to act as a document of my general approach, showc
 These skills include: identifying trends and feature interactions, hypothesis testing, evaluating model efficacy across cohorts, and forming conclusions on the dataset as a whole. 
 
 ## Libraries/Functions Imported
-* Pandas
-* Numpy
-* Matplotlib
-* Seaborn
-* From sklearn:
-  * LinearRegression
-  * train_test_split
-  * RandomForestRegressor
-  * mean_absolute_error
-  * r2_score
-  * KFold
-* chi2_contingency from scipy
+* **pandas** & **numpy**
+* **matplotlib** & **seaborn**
+* **scipy**: `chi2_contingency`
+* **scikit-learn**:
+  * `LinearRegression`, `RandomForestRegressor`
+  * `train_test_split`, `KFold`
+  * `mean_absolute_error`, `r2_score`
