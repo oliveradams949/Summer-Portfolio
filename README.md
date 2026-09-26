@@ -9,8 +9,8 @@ These skills include: identifying trends and feature interactions, hypothesis te
 ## Libraries/Functions Imported
 * **pandas** & **numpy**
 * **matplotlib** & **seaborn**
-* **scipy**: `chi2_contingency`
+* **scipy**: chi2_contingency
 * **scikit-learn**:
-  * `LinearRegression`, `RandomForestRegressor`
-  * `train_test_split`, `KFold`
-  * `mean_absolute_error`, `r2_score`
+  * LinearRegression, RandomForestRegressor
+  * train_test_split, KFold
+  * mean_absolute_error, r2_score
