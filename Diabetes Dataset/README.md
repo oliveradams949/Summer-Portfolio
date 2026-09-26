@@ -7,11 +7,11 @@ Exploratory Data-cleaning and analysis, conducted on a diabetes dataset. Largely
 
 ## Description
 * Analysed the distribution and the values inherent within the dataset.
-* Shows how the dataset contains a large value of missing values, which are largely out of line with true biological measurements.
+* Showed how the dataset contains a large value of missing values, which are largely out of line with true biological measurements.
 * Said missing values are not entirely distributed at random, as the missing values are intertwined (Skin thickness and insulin).
-* Identifies the proportion of missing values dependent upon the outcome (health of the patient) of the diabetes test conducted.
-* Shows how the missingness is largely present in exceedingly similar proportions across negative vs positive outcomes.
-* Uses this pattern to evaluate whether a single-value imputation (e.g. median) is suitable, or whether the missingness present requires a more advanced approach.
+* Identified the proportion of missing values dependent upon the outcome (health of the patient) of the diabetes test conducted.
+* Showed how the missingness is largely present in exceedingly similar proportions across negative vs positive outcomes.
+* Used this pattern to evaluate whether a single-value imputation (e.g. median) is suitable, or whether the missingness present requires a more advanced approach.
 
 ## Future Improvements
 * Utilise a more advanced imputation technique than a single value, such as KNN or MICE.
